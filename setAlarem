@@ -1,0 +1,51 @@
+// アラーム設定
+    function setAlarm() {
+      const input = document.getElementById("alarmTime").value;
+      if (!input) {
+        alert("アラーム時刻を設定してください。");
+        return;
+      }
+      alarmTime = input;
+      alert(`アラームが ${alarmTime} に設定されました。`);
+    }
+
+    // アラーム発動チェック
+    setInterval(() => {
+      if (!alarmTime) return;
+      const now = new Date();
+      const current = now.toTimeString().slice(0, 5); // HH:MM
+      if (current === alarmTime) {
+        alarmTime = null; // リセット
+        audio.src = audioURL || "sound/favorite_song.mp3"; // 録音がなければデフォルト曲
+        audio.play();
+        alert("⏰ アラームの時間です！");
+      }
+    }, 1000);
+
+    // 録音開始
+    async function startRecording() {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      audioChunks = [];
+
+      mediaRecorder.ondataavailable = e => {
+        if (e.data.size > 0) audioChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = () => {
+        audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+        audioURL = URL.createObjectURL(audioBlob);
+        audio.src = audioURL;
+      };
+
+      mediaRecorder.start();
+      console.log("🎙️ 録音開始");
+    }
+
+    // 録音停止
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state === "recording") {
+        mediaRecorder.stop();
+        console.log("🛑 録音停止");
+      }
+    }
