@@ -1,0 +1,13 @@
+function playAlarm() {
+        const audio = document.getElementById("audio");
+        const photo = document.getElementById("photo");
+  
+        // 音を再生
+        audio.play().then(() => {
+          // 再生成功時に写真を表示
+          photo.style.display = "block";
+        }).catch(err => {
+          console.error("音の再生に失敗しました:", err);
+          alert("音の再生に失敗したよ。ファイルやブラウザの設定を確認してね！");
+        });
+      }
