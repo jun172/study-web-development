@@ -1,0 +1,10 @@
+const timeElement = document.getElementById("time");
+    const countryTimeElement = document.getElementById("countryTime");
+    const worldClocksElement = document.getElementById("worldClocks");
+    const audio = document.getElementById("audio");
+    let alarmTime = null;
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioBlob;
+    let audioURL;
+    
