@@ -1,0 +1,31 @@
+// 再生
+    function playAudio() {
+      if (audio.src) {
+        audio.play();
+        console.log("▶️ 再生中");
+      }
+    }
+
+    // 停止
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0;
+      console.log("⏹ 再生停止");
+    }
+
+    // 共有リンク生成
+    function shareAudio() {
+      if (!audioURL) {
+        alert("録音された音声がありません。");
+        return;
+      }
+      prompt("以下のリンクを友達と共有してください:", audioURL);
+    }
+
+    // 初期化
+    updateCurrentTime();
+    updateWorldClocks();
+    setInterval(updateCurrentTime, 1000);
+    setInterval(updateWorldClocks, 60000);
+    setInterval(updateClock, 1000);
+    updateClock(); // 初回実行
