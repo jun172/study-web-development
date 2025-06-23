@@ -1,0 +1,35 @@
+// 現在の時間を更新
+    function updateCurrentTime() {
+      const now = new Date();
+      timeElement.textContent = `現在の時間: ${now.toLocaleTimeString("ja-JP")}`;
+
+      // ニューヨーク時間（UTC-5）※サマータイム対応ではない
+      const nyTime = new Date(now.getTime() - (5 * 60 * 60 * 1000));
+      countryTimeElement.textContent = `ニューヨークの時間: ${nyTime.toLocaleTimeString("en-US")}`;
+    }
+
+    // 世界時計を表示
+    async function updateWorldClocks() {
+      const cities = ["Asia/Tokyo", "Europe/London", "America/New_York", "Australia/Sydney"];
+      worldClocksElement.innerHTML = "<h2>🌏 世界時計</h2>";
+      for (const city of cities) {
+        try {
+          const response = await fetch(`https://worldtimeapi.org/api/timezone/${city}`);
+          const data = await response.json();
+          const cityName = city.split("/")[1].replace("_", " ");
+          const time = new Date(data.datetime).toLocaleTimeString("ja-JP");
+          const clockElement = document.createElement("div");
+          clockElement.textContent = `${cityName}: ${time}`;
+          worldClocksElement.appendChild(clockElement);
+        } catch (error) {
+          console.error(`⚠️ ${city}の時間取得に失敗:`, error);
+        }
+      }
+    }
+    const API_KEY = "YOUR_API_KEY"; // ← ここに自分のAPIキーを入れてね！
+
+async function updateWeatherBackground() {
+  try {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=${API_KEY}&units=metric`);
+    const data = await res.json();
+    const weather = data.weather[0].main.toLowerCase(); // "clear", "clouds", "rain", etc.
