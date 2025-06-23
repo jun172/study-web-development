@@ -1,0 +1,22 @@
+
+    // 背景を天気に応じて切り替える
+    if (weather.includes("clear")) {
+      document.body.style.backgroundImage = "url('img/sunny.jpg')";
+    } else if (weather.includes("cloud")) {
+      document.body.style.backgroundImage = "url('img/cloudy.jpg')";
+    } else if (weather.includes("rain")) {
+      document.body.style.backgroundImage = "url('img/rainy.jpg')";
+    } else if (weather.includes("snow")) {
+      document.body.style.backgroundImage = "url('img/snow.jpg')";
+    } else {
+      document.body.style.backgroundImage = "url('img/default.jpg')";
+    }
+
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
+
+  } catch (err) {
+    console.error("天気取得失敗:", err);
+  }
+}
