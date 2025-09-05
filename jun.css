@@ -1,0 +1,274 @@
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f0f8ff; /* 優しい水色 */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #a2d5f2; /* 柔らかい青 */
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nav-tabs {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.nav-tabs button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #c1f0c1; /* 優しい緑 */
+  transition: transform 0.2s;
+}
+
+.nav-tabs button:hover {
+  transform: scale(1.05);
+}
+
+.tags {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tags button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #ffe0f0; /* 柔らかいピンク */
+  transition: transform 0.2s;
+}
+
+.tags button:hover {
+  transform: scale(1.1);
+}
+
+/* 投稿一覧 横並び */
+.posts {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; /* 横スクロール */
+  padding: 20px;
+  gap: 20px;
+}
+
+.post {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 300px;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
+  flex: 0 0 auto; /* 横方向固定幅 */
+  transition: transform 0.2s;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+}
+
+.post h3 {
+  margin-top: 0;
+  color: #6b8e23; /* 落ち着いた緑 */
+}
+
+.post p {
+  color: #555;
+  line-height: 1.4;
+}
+
+.post .tags {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.post .date {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.post-buttons {
+  margin-top: 15px;
+}
+
+.post-buttons button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #a2d5f2; /* ボタンも癒される青 */
+  transition: transform 0.2s;
+}
+
+.post-buttons button:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top:10px;
+  right:15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #fff0f5; /* ラベンダー系 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+form, .post {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* タイトル */
+.post h2, form h2 {
+  font-size: 1.5em;
+  color: #ff69b4;
+  margin-bottom: 10px;
+}
+
+/* 本文 */
+.post p, form p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* タグ・ボタン共通 */
+.tag-btn, button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4); /* 初期グラデ */
+}
+
+/* フェード・押した時 */
+.tag-btn:active, button:active {
+  transform: scale(0.95);
+}
+
+/* 光るエフェクト */
+.glow {
+  animation: glowAnim 0.6s;
+}
+
+@keyframes glowAnim {
+  0% { box-shadow: 0 0 0px #ff69b4; }
+  50% { box-shadow: 0 0 15px #ff69b4; }
+  100% { box-shadow: 0 0 0px #ff69b4; }
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #fff8f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: linear-gradient(90deg, #ffb6c1, #ffd700, #87cefa);
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sidebar {
+  width: 200px;
+  padding: 1rem;
+  background: #fff0f5;
+  border-right: 1px solid #ddd;
+}
+.sidebar .tag-btn, .button {
+  display: inline-block;
+  margin: 0.2rem 0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  background: #ffc0cb;
+  color: #000;
+  text-decoration: none;
+}
+.sidebar .tag-btn:hover, .button:hover {
+  background: #ff69b4;
+}
+.main {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.post {
+  background: #fff0f5;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.post h2 {
+  margin-top: 0;
+}
+.tags {
+  font-size: 0.9rem;
+  color: #666;
+}
+.time {
+  font-size: 0.8rem;
+  color: #999;
+}
