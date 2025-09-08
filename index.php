@@ -60,6 +60,7 @@ $tags = $pdo->query("SELECT * FROM tags ORDER BY name ASC")->fetchAll();
             <p class="tags">タグ: <?= htmlspecialchars($post['tags'] ?? '') ?></p>
             <p class="time">作成日時: <?= $post['created_at'] ?></p>
             <a href="edit.php?id=<?= $post['id'] ?>" class="button edit-btn">編集</a>
+            <a href="edit.php?id=<?= $post['id'] ?>" class="button edit-btn">削除</a>
             <a href="http://localhost:8888/delete.php=<?= $post['id'] ?>" class="button delete-btn" onclick="return confirm('本当に削除しますか？')">削除</a>
         </article>
         <?php endforeach; ?>
